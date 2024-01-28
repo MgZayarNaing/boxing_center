@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+
+{% block body %}
+{% load static %}
+
+
+
+
+
+<!-- blog section -->
+
+<section class="blog_section layout_padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 ml-auto">
+                <div class="heading_container">
+                    <h2>
+                        Latest Blog
+                    </h2>
+                    <p>
+                        iusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis n
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for p in blog %}
+
+            <div class="col-md-6 pl-0">
+
+                <div class="box b1">
+
+                    <div class="img-box">
+                        <img src="{{p.img.url}}" alt="Image" width="660px " height="500px">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 ml-auto">
+                            <div class="detail-box">
+                                <div class="img_date">
+                                    <h6>
+                                        {{p.created_at}}
+                                    </h6>
+                                </div>
+                                <h3>
+                                    {{p.title}}
+                                </h3>
+                                <p>
+                                    {{p.contact}}
+                                </p>
+                                <a href="">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+
+<!-- end blog section -->
+
+
+
+<!-- info section -->
+<div class="info_section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 ml-auto">
+                <div class="row info_main-row">
+                    <div class="col-md-6 pr-0">
+
+                        <!-- contact section -->
+
+                        <section class="contact_section">
+                            <h2>
+                                Request A Call Back
+                            </h2>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="text" placeholder="Name" name="name" />
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Phone Number" name="phone" />
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Email" name="email" />
+                                </div>
+                                <div>
+                                    <input type="text" class="message-box" placeholder="Message" name="message" />
+                                </div>
+                                <div class="d-flex ">
+                                    <button type="submit">
+                                        SEND
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="map_container">
+                                <div class="map">
+                                    <div id="googleMap" style="width:100%;height:300px;"></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- end contact section -->
+
+
+                        <!-- footer section -->
+                        <section class=" footer_section ">
+                            <div class="social_box">
+                                <a href="#">
+                                    <img src="images/facebook.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="images/twitter.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="images/linkedin.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="images/instagram.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="images/youtube.png" alt="">
+                                </a>
+                            </div>
+                            <p>
+                                &copy; 2020 All Rights Reserved. Design by
+                                <a href="https://html.design/">Free Html Templates</a>
+                            </p>
+                        </section>
+                        <!-- footer section -->
+
+                    </div>
+                    <div class="col-md-6  px-0">
+                        <div class="img-box">
+                            <img src="{% static 'images/footer-img.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end info section -->
+
+{% endblock %}
